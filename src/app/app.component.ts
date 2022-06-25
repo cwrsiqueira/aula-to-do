@@ -8,14 +8,14 @@ import { Task } from './task';
 })
 export class AppComponent {
   title = 'Lista de Tarefas';
-  msg = '';
+  msg = 'Digite a descrição da tarefa e clique <Adicionar> ou tecle <Enter>';
   color_msg = '';
   tarefas = [
     new Task('1', "Exemplo", true),
   ];
 
   setDefaultStatus() {
-    this.msg = '';
+    this.msg = 'Digite a descrição da tarefa e clique <Adicionar> ou tecle <Enter>';
     this.color_msg = '';
   }
 
