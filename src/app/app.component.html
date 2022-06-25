@@ -1,0 +1,13 @@
+<h1>{{title}}</h1>
+<input type="text" #newTask (keyup)="0" (keyup.enter)="addTask(newTask.value); newTask.value=''">
+<input type="submit" value="Adicionar" (click)="addTask(newTask.value); newTask.value=''">
+<br>
+<div style="display:inline-flex;padding:10px;margin-top:10px;border-radius: 5px;color: {{color_msg}};border: 1px solid {{color_msg}}" *ngIf="msg">{{msg}}</div>
+<ul>
+  <li *ngFor="let tarefa of tarefas">
+    <s *ngIf="!tarefa.realizada">{{tarefa.id}} - {{tarefa.item}}</s>
+    <span *ngIf="tarefa.realizada">{{tarefa.id}} - {{tarefa.item}}</span>
+    <span *ngIf="tarefa.realizada" (click)="selectConclude(tarefa.id);" > [ Marcar Concluída]</span>
+    <span *ngIf="!tarefa.realizada" (click)="selectConclude(tarefa.id);" > [ Marcar Não Concluída]</span>
+    <span (click)="deleteTask(tarefa.id)"> [ Excluir Tarefa ] </span>
+</ul>
